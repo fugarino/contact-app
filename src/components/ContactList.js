@@ -1,5 +1,18 @@
 import React from "react";
 
-export default function ContactList() {
-  return <h1>ContactList.js</h1>;
-}
+const ContactList = (props) => {
+  const renderContactList = props.contacts.map((contact) => {
+    return (
+      <div className="item">
+        <div className="content">
+          <div className="header">{contact.name}</div>
+          <div>{contact.email}</div>
+        </div>
+        <i className="trash alternate outline icon"></i>
+      </div>
+    );
+  });
+  return <div className="ui celled list">{renderContactList}</div>;
+};
+
+export default ContactList;
